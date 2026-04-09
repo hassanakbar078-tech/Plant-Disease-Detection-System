@@ -6,7 +6,7 @@ Pre-requisites:
     2. Create a Kaggle API token:
        - Go to https://www.kaggle.com/settings → "API" → "Create New Token"
        - This downloads kaggle.json.  Place it at ~/.kaggle/kaggle.json
-         (Linux/Mac) or %USERPROFILE%\.kaggle\kaggle.json (Windows).
+         (Linux/Mac) or %USERPROFILE%\\.kaggle\\kaggle.json (Windows).
     3. Run this script:             python download_dataset.py
 
 The dataset will be extracted to ./PlantVillage/

@@ -15,7 +15,6 @@ import json
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from pathlib import Path
 
 import tensorflow as tf
 from tensorflow.keras import layers, models
@@ -119,7 +118,7 @@ def build_data_generators(data_dir: str, val_split: float, batch_size: int):
 
 
 # ── Model definition ──────────────────────────────────────────────────────────
-def build_model(num_classes: int, learning_rate: float) -> tf.keras.Model:
+def build_model(num_classes: int, learning_rate: float) -> tuple:
     """
     Builds a transfer-learning model using EfficientNetB0 as the feature
     extractor followed by a custom classification head.
@@ -329,7 +328,7 @@ def main():
 
     # Also export as SavedModel for TF Serving compatibility
     saved_model_path = os.path.join(args.output_dir, "plant_disease_savedmodel")
-    model.export(saved_model_path)
+    tf.saved_model.save(model, saved_model_path)
     print(f"SavedModel exported → {saved_model_path}")
 
     print("\n✅  Training complete!\n")

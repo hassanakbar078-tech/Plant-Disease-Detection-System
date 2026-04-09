@@ -83,7 +83,7 @@ def main():
     print(f"\nResults for: {image_path.name}")
     print("-" * 40)
     for rank, idx in enumerate(top_k_indices, start=1):
-        label = idx_to_class.get(idx, f"class_{idx}")
+        label = idx_to_class.get(int(idx), f"class_{idx}")
         confidence = predictions[idx] * 100
         print(f"  #{rank}  {label:<45}  {confidence:.2f}%")
     print("-" * 40)
